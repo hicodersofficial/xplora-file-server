@@ -1,0 +1,259 @@
+[
+    {
+        "name": "android-app",
+        "iconExt": "png",
+        "exts": [
+            "apk"
+        ]
+    },
+    {
+        "name": "aab",
+        "iconExt": "png",
+        "exts": [
+            "aab"
+        ]
+    },
+    {
+        "name": "console",
+        "iconExt": "svg",
+        "exts": [
+            "sh",
+            "bash",
+            "bat",
+            "shell",
+            "cmd"
+        ]
+    },
+    {
+        "name": "cpp",
+        "iconExt": "svg",
+        "exts": [
+            "cpp",
+            "cp"
+        ]
+    },
+    {
+        "name": "csharp",
+        "iconExt": "svg",
+        "exts": [
+            "cs"
+        ]
+    },
+    {
+        "name": "css",
+        "iconExt": "svg",
+        "exts": [
+            "css"
+        ]
+    },
+    {
+        "name": "docker",
+        "iconExt": "svg",
+        "exts": [
+            "dockerfile"
+        ]
+    },
+    {
+        "name": "excel",
+        "iconExt": "png",
+        "exts": [
+            "xls",
+            "xlsx"
+        ]
+    },
+    {
+        "name": "text",
+        "iconExt": "png",
+        "exts": [
+            "txt",
+            "text"
+        ]
+    },
+    {
+        "name": "folder",
+        "iconExt": "svg",
+        "exts": []
+    },
+    {
+        "name": "go_gopher",
+        "iconExt": "svg",
+        "exts": [
+            "go"
+        ]
+    },
+    {
+        "name": "gradle",
+        "iconExt": "svg",
+        "exts": [
+            "gradle"
+        ]
+    },
+    {
+        "name": "html",
+        "iconExt": "svg",
+        "exts": [
+            "html",
+            "htm"
+        ]
+    },
+    {
+        "name": "java",
+        "iconExt": "svg",
+        "exts": [
+            "java",
+            "class"
+        ]
+    },
+    {
+        "name": "javascript",
+        "iconExt": "svg",
+        "exts": [
+            "js",
+            "jsx"
+        ]
+    },
+    {
+        "name": "typescript",
+        "iconExt": "svg",
+        "exts": [
+            "ts",
+            "tsx"
+        ]
+    },
+    {
+        "name": "exe",
+        "iconExt": "png",
+        "exts": [
+            "exe",
+            "msi"
+        ]
+    },
+    {
+        "name": "json",
+        "iconExt": "svg",
+        "exts": [
+            "json"
+        ]
+    },
+    {
+        "name": "jupyter",
+        "iconExt": "svg",
+        "exts": [
+            "py"
+        ]
+    },
+    {
+        "name": "key",
+        "iconExt": "svg",
+        "exts": [
+            "key"
+        ]
+    },
+    {
+        "name": "kotlin",
+        "iconExt": "svg",
+        "exts": [
+            "kt"
+        ]
+    },
+    {
+        "name": "pdf",
+        "iconExt": "png",
+        "exts": [
+            "pdf"
+        ]
+    },
+    {
+        "name": "php",
+        "iconExt": "svg",
+        "exts": [
+            "php"
+        ]
+    },
+    {
+        "name": "powerpoint",
+        "iconExt": "svg",
+        "exts": [
+            "ppt"
+        ]
+    },
+    {
+        "name": "powershell",
+        "iconExt": "svg",
+        "exts": [
+            "ps",
+            "ps1"
+        ]
+    },
+    {
+        "name": "md",
+        "iconExt": "png",
+        "exts": [
+            "md",
+            "readme"
+        ]
+    },
+    {
+        "name": "python",
+        "iconExt": "svg",
+        "exts": [
+            "py"
+        ]
+    },
+    {
+        "name": "r",
+        "iconExt": "svg",
+        "exts": [
+            "r"
+        ]
+    },
+    {
+        "name": "shaderlab",
+        "iconExt": "svg",
+        "exts": [
+            "unity"
+        ]
+    },
+    {
+        "name": "swift",
+        "iconExt": "svg",
+        "exts": [
+            "swift"
+        ]
+    },
+    {
+        "name": "word",
+        "iconExt": "svg",
+        "exts": [
+            "docx",
+            "doc",
+            "docs"
+        ]
+    },
+    {
+        "name": "xml",
+        "iconExt": "svg",
+        "exts": [
+            "xml",
+            "xxml"
+        ]
+    },
+    {
+        "name": "yaml",
+        "iconExt": "svg",
+        "exts": [
+            "yaml"
+        ]
+    },
+    {
+        "name": "zip",
+        "iconExt": "png",
+        "exts": [
+            "zip",
+            "rar",
+            "tar.gz",
+            "tar",
+            "gz"
+        ]
+    }
+]
