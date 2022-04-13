@@ -1,5 +1,4 @@
  <?php require_once "/app/php/nav.php"; ?>
- <?php require_once "/app/php/upload.php"; ?>
  <?php if ($notFound) : ?>
      <section class="container-404">
          <img src="/app/assets/images/oops.png" alt="404" srcset="" class="error-img">
@@ -8,7 +7,13 @@
          <a href="/" class="btn btn-danger" type="button">Back to home</a>
      </section>
  <?php elseif (count($files) > 0) :  ?>
-     <?php require_once "/app/php/create_card.php" ?>
+     <form id="selectedItems" method="post">
+         <?php require_once "/app/php/create_card.php" ?>
+         <?php require_once "/app/php/rename.php" ?>
+     </form>
+     <?php require_once "/app/php/create_dir.php" ?>
+     <?php require_once "/app/php/upload.php"; ?>
+     <?php require_once "/app/php/delete.php" ?>
  <?php else : ?>
      <section class="container-404">
          <img src="/app/assets/images/data-not-found.png" class="error-img" alt="404" srcset="">

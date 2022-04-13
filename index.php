@@ -10,7 +10,10 @@
     <title>Hi Coders' Server</title>
     <link rel="stylesheet" href="/app/styles/styles.css">
     <link rel="stylesheet" href="/app/vendor/bootstrap.css">
+    <link rel="stylesheet" href="/app/vendor/bootstrap-icons.css">
+    <link rel="stylesheet" href="/app/vendor/css.gg.all.css">
     <script src="/app/vendor/bootstrap.js"></script>
+    <script src="/app/vendor/axios.min.js"></script>
 </head>
 
 <body>

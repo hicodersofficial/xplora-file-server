@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
         <div class="navbar-brand">
             <a href="/">
@@ -15,13 +15,32 @@
         <div class="collapse navbar-collapse" id="navbarScroll">
             <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll">
             </ul>
-            <button class="btn btn-primary upload-btn" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-                Show Stats
+            <button class="btn btn-outline-light upload-btn disabled" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Download" id="download">
+                <i class="bi bi-cloud-download-fill"></i>
+            </button>
+            <button class="btn btn-outline-light upload-btn disabled" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Download Zip" id="zip">
+                <i class="bi bi-file-earmark-zip-fill"></i>
+            </button>
+            <a class="btn btn-outline-danger disabled upload-btn" id="deleteBtn" data-bs-toggle="modal" data-bs-target="#deleteModel" role="button" aria-disabled="true">
+                <i data-bs-toggle="tooltip" data-bs-placement="bottom" title="Delete" class="bi bi-trash-fill"></i>
+            </a>
+            <a class="btn btn-outline-warning disabled upload-btn" data-bs-toggle="modal" data-bs-target="#renameFiles" id="renameBtn" role="button" aria-disabled="true">
+                <i title="Rename" data-bs-placement="bottom" data-bs-toggle="tooltip" class="bi bi-input-cursor-text"></i>
+            </a>
+            <button class="btn btn-outline-info upload-btn" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                <i data-bs-toggle="tooltip" data-bs-placement="bottom" title="Files Info" class="bi bi-info-circle"></i>
             </button>
 
-            <button class="btn btn-success upload-btn" data-bs-toggle="modal" data-bs-target="#createDir">New Folder</button>
+            <button class="btn btn-outline-secondary upload-btn" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Select All" type="button" id="selectAll">
+                <i class="bi bi-check2-all"></i>
+            </button>
 
-            <button class="btn btn-danger upload-btn" data-bs-toggle="modal" data-bs-target="#uploadModel">Upload</button>
+            <button class="btn btn-outline-success upload-btn" title="New Folder" data-bs-toggle="modal" data-bs-target="#createDir">
+                <i data-bs-toggle="tooltip" data-bs-placement="bottom" title="New Folder" class="bi bi-folder-plus">
+
+                </i></button>
+
+            <button class="btn btn-outline-primary upload-btn" data-bs-toggle="modal" data-bs-target="#uploadModel" title="Upload"> <i data-bs-toggle="tooltip" data-bs-placement="bottom" title="Upload" class="bi bi-upload"></i></button>
 
             <form class="d-flex">
                 <input class="form-control me-2 bg-search" type="search" name="s" placeholder="Search" autocomplete="off" aria-label="Search">
@@ -31,31 +50,4 @@
         </div>
     </div>
 </nav>
-<div class="padding__bottom"></div>
-
-
-<div class="modal" id="createDir" tabindex=" -1">
-    <div class="modal-dialog modal-dialog-centered ">
-        <form action="<?php echo $_SERVER['REQUEST_URI'] ?>" method="POST" id="form" enctype="multipart/form-data">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Create Folder</h5>
-                    <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">&times; </button>
-                </div>
-                <div class="modal-body">
-                    <!-- <p>Upload file.</p> -->
-                    <input class="form-control me-2 bg-search" autocomplete="off" type="text" placeholder="Directory Name" name="dirname" aria-label=dirname">
-                    &nbsp;
-                    <div style="display: flex; align-items: center;">
-                        <input type="checkbox" name="navigate" value="true" id="navigate" checked style="height: 20px;width: 20px;cursor: pointer;">
-                        <label style="cursor: pointer;" for="navigate">&nbsp;Navigate to newly created folder.</label>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button class="btn btn-danger" type="submit">Create</button>
-                </div>
-            </div>
-        </form>
-    </div>
-</div>
+<!-- <div class="padding__bottom"></div> -->

@@ -9,7 +9,6 @@ function randomColor($minVal = 0, $maxVal = 255)
     return sprintf('#%02X%02X%02X', $r, $g, $b);
 }
 
-
 function normalize_path($path)
 {
     return str_replace("//", "/", "/" . $path . "/");
@@ -24,5 +23,41 @@ function my_url_param_parser($url, $key, $value)
         return  $url . "&$key=$value";
     } else {
         return  $url . "?$key=$value";
+    }
+}
+
+function delTree($dir)
+{
+    $files = array_diff(scandir($dir), array('.', '..'));
+
+    foreach ($files as $file) {
+        (is_dir("$dir/$file")) ? delTree("$dir/$file") : unlink("$dir/$file");
+    }
+
+    return rmdir($dir);
+}
+
+
+function zipDir($dir, $zip)
+{
+    $files = array_diff(scandir($dir), array('.', '..'));
+    foreach ($files as $file) {
+        $full_path = str_replace("//", "/", $dir . "/" . $file);
+        if (is_dir($full_path)) {
+            zipDir($full_path, $zip);
+        } else {
+            $zip->addFile($full_path, $full_path[0] == "/" ? ltrim($full_path, $full_path[0]) : $full_path);
+        }
+    }
+}
+
+function ext_name($path, $dot = true)
+{
+    $splits = explode(".", $path);
+    if (count($splits) > 1) {
+        $ext =  $splits[count($splits) - 1];
+        return  $dot ? "." . $ext : $ext;
+    } else {
+        return  "";
     }
 }

@@ -2,10 +2,10 @@
 
 ## Running
 
-Run `link.sh` script in terminal.
+Run `link.bat` script in terminal.
 
 ```
-$ link.sh
+$ link.bat
 ```
 
 ## File structure

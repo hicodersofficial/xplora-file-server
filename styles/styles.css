@@ -23,6 +23,17 @@ body {
   padding: 10px;
   grid-template-columns: repeat(4, 1fr);
 }
+
+#zip {
+  border-color: #cfff8e;
+  color: #cfff8e;
+}
+
+#zip:hover {
+  background-color: #cfff8e;
+  color: #171c21;
+}
+
 .modal-header {
   border-bottom: 1px solid #414f5d !important;
 }
@@ -43,11 +54,6 @@ body {
   width: 500px !important;
 }
 
-.navbar {
-  position: fixed !important;
-  z-index: 99999;
-  width: 100%;
-}
 .padding__bottom {
   padding-bottom: 4rem;
 }
@@ -135,6 +141,7 @@ form {
 
 .upload-btn {
   margin-right: 10px !important;
+  padding-bottom: 10px !important;
 }
 
 .container-404 {
@@ -154,6 +161,59 @@ form {
   text-align: center;
 }
 
+.card input[type="checkbox"] {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.5s all;
+}
+
+.card input[type="checkbox"]:checked {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+.card:hover > input[type="checkbox"] {
+  opacity: 1;
+  visibility: visible;
+}
+
+.loader {
+  width: 20px;
+  height: 20px;
+  border-top: 2px solid #fff;
+  border-bottom: 2px solid #fff;
+  animation: loader 1s linear infinite;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  -webkit-animation: loader 1s linear infinite;
+}
+
+@keyframes loader {
+  from {
+    transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+  }
+}
+
 @media (min-width: 1300px) {
   .card__group {
     display: grid;
@@ -169,8 +229,8 @@ form {
     display: none !important;
   }
   .upload-btn {
-    width: 100% !important;
-    margin-right: 0 !important;
+    /* width: 100% !important;
+    margin-right: 0 !important; */
     margin-bottom: 10px !important;
   }
 }

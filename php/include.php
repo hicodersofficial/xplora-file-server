@@ -3,19 +3,20 @@ require_once "utils.php";
 require_once "/app/php/app.php";
 
 if (isset($_FILES["file"]) && isset($_POST["filename"])) {
-    $file_counts = count($_FILES['file']['name']);
+    $files = $_FILES['file']['name'];
+    $file_counts = count($files);
     for ($i = 0; $i < $file_counts; $i++) {
         $file = $_FILES['file']['tmp_name'][$i];
         $target_dir = $ROOT_PATH;
-        $exts = explode('.', $_FILES['file']['name'][$i]);
+
         $target_file;
         $date = date('m-d-Y_h-i-s');
         if (!empty($_POST["filename"])) {
-            $target_file = $target_dir . $_POST["filename"] . "." . $exts[count($exts) - 1] . '__' . $date . '__' . random_int(1000, 10000000) . '.' . $exts[count($exts) - 1];
+            $target_file = $target_dir . $_POST["filename"] . ext_name($files[$i]) . '__' . $date . '__' . random_int(1000, 10000000) . ext_name($files[$i]);
         } else {
             $basename =
                 basename($_FILES["file"]["name"][$i]);
-            $target_file = $target_dir . $basename . '__' . $date . '__' . random_int(1000, 10000000) . '.' . $exts[count($exts) - 1];
+            $target_file = $target_dir . $basename . '__' . $date . '__' . random_int(1000, 10000000) .  ext_name($files[$i]);
         }
         move_uploaded_file($_FILES['file']['tmp_name'][$i],  $target_file);
     }
@@ -31,5 +32,71 @@ if (isset($_POST["dirname"]) && !empty($_POST["dirname"])) {
     } else {
         header('Location: ' . $_SERVER['REQUEST_URI']);
     }
+    exit();
+}
+
+if (!empty(isset($_POST["select"])) && !empty(isset($_POST["download"]))) {
+    $paths = $_POST["select"];
+    $zip = new ZipArchive();
+    $zip_path = '/download_' . random_int(100, 1000000) . '.zip';
+    if ($zip->open($zip_path, ZIPARCHIVE::CREATE | ZIPARCHIVE::OVERWRITE) != true) {
+        die("Could not open archive");
+    };
+    $allPaths = [];
+    foreach ($paths as $path) {
+        if (is_dir($path)) {
+            zipDir($path, $zip);
+        } else {
+            $zip->addFile($path, basename($path));
+        }
+    }
+    $zip->close();
+
+    if (file_exists($zip_path)) {
+        header('Content-Description: File Transfer');
+        header('Content-Type: application/octet-stream');
+        header('Content-Disposition: attachment; filename=' . basename($zip_path));
+        header('Content-Transfer-Encoding: binary');
+        header('Expires: 0');
+        header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
+        header('Pragma: public');
+        header('Content-Length: ' . filesize($zip_path));
+        ob_clean();
+        flush();
+        readfile($zip_path);
+        if (file_exists($zip_path)) {
+            unlink($zip_path);
+        }
+        exit;
+    }
+}
+
+
+if (!empty(isset($_POST["select"])) && !empty(isset($_POST["delete"]))) {
+    $paths = $_POST["select"];
+    if ($_POST["delete"] == "true") {
+        foreach ($paths as $path) {
+            if (is_dir($path)) {
+                delTree($path);
+            } else {
+                unlink($path);
+            }
+        }
+        header('Location: ' . $_SERVER['REQUEST_URI']);
+        exit();
+    }
+}
+
+if (!empty(isset($_POST["select"])) && !empty(isset($_POST["rename"]))) {
+    $paths = $_POST["select"];
+    $name = $_POST["rename"];
+    foreach ($paths as $path) {
+        rename(
+            $path,
+            $name . ext_name($path)
+
+        );
+    }
+    header('Location: ' . $_SERVER['REQUEST_URI']);
     exit();
 }
