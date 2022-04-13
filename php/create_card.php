@@ -31,7 +31,7 @@
         <div class="card">
             <!-- Rendered if item is directory/folder. -->
             <?php if ($is_dir) : ?>
-                <img src="<?php echo "./app/assets/icons/folder.png" ?>" class="card-img-top" alt="<?php echo $src  ?>">
+                <img src="<?php echo "/app/assets/icons/folder.png" ?>" class="card-img-top" alt="<?php echo $src  ?>">
                 <?php $rendered = true ?>
             <?php endif; ?>
 
@@ -44,20 +44,20 @@
 
             <!-- Rendered if supported video extension found. -->
             <?php if (in_array($ext_name, VIDEOS_EXTS)) : ?>
-                <video style="width: 100%;" controls src="<?php echo $src ?>"></video>
+                <video style="width: 100%;" controls src="<?php echo $ROOT_PATH . $src ?>"></video>
                 <?php $rendered = true ?>
             <?php endif; ?>
             <?php if (in_array($ext_name, AUDIO_EXTS)) : ?>
-                <img src="<?php echo "./app/assets/icons/audio.svg"
+                <img src="<?php echo "/app/assets/icons/audio.svg"
                             ?>" style="width: 70%;" class="card-img-top" alt="<?php echo $src  ?>">
-                <audio style="width: 95%;" controls src="<?php echo $src ?>"></audio>
+                <audio style="width: 95%;" controls src="<?php echo $ROOT_PATH . $src ?>"></audio>
                 <?php $rendered = true ?>
             <?php endif; ?>
 
             <!--  -->
             <?php for ($j = 0; $j < count($json); $j++) : ?>
                 <?php if (in_array($ext_name, $json[$j]["exts"]) && !$rendered) : ?>
-                    <img src="<?php echo "./app/assets/icons/" . $json[$j]["name"] . '.' . $json[$j]["iconExt"]
+                    <img src="<?php echo "/app/assets/icons/" . $json[$j]["name"] . '.' . $json[$j]["iconExt"]
                                 ?>" class="card-img-top" alt="<?php echo $src  ?>">
                     <?php $rendered = true ?>
                 <?php endif ?>
@@ -65,7 +65,7 @@
 
             <!-- Special type of file match. eg: config files, etc -->
             <?php if ($ext_name == strtolower($src) && !in_array($ext_name, EXCL_EXTS) &&  !$rendered) : ?>
-                <img src="<?php echo "./app/assets/icons/document.svg" ?>" class="card-img-top" alt="<?php echo $src  ?>">
+                <img src="<?php echo "/app/assets/icons/document.svg" ?>" class="card-img-top" alt="<?php echo $src  ?>">
                 <?php $rendered = true ?>
             <?php endif; ?>
 
@@ -88,7 +88,7 @@
                 </div>
 
 
-                <!-- <img src="<?php // echo "./app/assets/icons/unknown.png" 
+                <!-- <img src="<?php // echo "/app/assets/icons/unknown.png" 
                                 ?>" class="card-img-top" alt="<?php // echo $src  
                                                                 ?>"> -->
             <?php endif; ?>
@@ -108,7 +108,7 @@
                     </div>
 
                     <div class="btn__container">
-                        <a href='<?php echo $ROOT_PATH . $src ?>' download class="btn btn-success download"><?php require "./app/assets/php/download.php" ?> &nbsp; <span>download</span> </a>
+                        <a href='<?php echo $ROOT_PATH . $src ?>' download class="btn btn-success download"><?php require "/app/assets/php/download.php" ?> &nbsp; <span>download</span> </a>
                         <a href="<?php echo $ROOT_PATH . $src ?>" target="_blank" class="btn btn-primary open">Open</a>
                     </div>
                 <?php endif ?>

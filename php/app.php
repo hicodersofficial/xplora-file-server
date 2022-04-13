@@ -43,4 +43,4 @@ for ($i = 0; $i < count($scan); $i++) {
         }
     }
 }
-$json = json_decode(file_get_contents("./app/data/files.json"), true);
+$json = json_decode(file_get_contents("/app/data/files.json"), true);

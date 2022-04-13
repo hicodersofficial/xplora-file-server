@@ -1,6 +1,6 @@
 <?php
 require_once "utils.php";
-require_once "./app/php/app.php";
+require_once "/app/php/app.php";
 
 if (isset($_FILES["file"]) && isset($_POST["filename"])) {
     $file_counts = count($_FILES['file']['name']);
