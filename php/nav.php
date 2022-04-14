@@ -31,7 +31,7 @@
                 <i data-bs-toggle="tooltip" data-bs-placement="bottom" title="Files Info" class="bi bi-info-circle"></i>
             </button>
 
-            <button class="btn btn-outline-secondary upload-btn" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Select All" type="button" id="selectAll">
+            <button class="btn btn-outline-secondary upload-btn check-all" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Select All" type="button" id="selectAll">
                 <i class="bi bi-check2-all"></i>
             </button>
 

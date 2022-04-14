@@ -25,22 +25,56 @@ if (isset($_GET["s"]) && !empty($_GET["s"])) {
     $keyword = $_GET["s"];
 }
 if (is_dir($ROOT_PATH)) {
-    $scan  = scandir($ROOT_PATH);
+    $scan  = scandir($ROOT_PATH,);
 } else {
     $notFound = true;
 }
 
 for ($i = 0; $i < count($scan); $i++) {
-    if (!in_array(strtolower($scan[$i]), EXCLUDES)) {
+    $src = strtolower($scan[$i]);
+    if (!in_array($src, EXCLUDES)) {
+        $path = $ROOT_PATH . $scan[$i];
+        $created_at = stat($path)[10];
+        $size = stat($path)[7];
+        $file_name = $scan[$i];
+        $ext_name = ext_name($src, false);
+        $is_dir = is_dir($path);
+        $is_file = is_file($path);
+
         if (!empty($keyword)) {
-            if (preg_match_all("/" . $keyword . "/i", $scan[$i])) {
-                array_push($files, $scan[$i]);
+            if (preg_match_all("/" . $keyword . "/i", $src)) {
+                array_push(
+                    $files,
+                    [
+                        "created_at" => $created_at,
+                        "size" => $size,
+                        "src" => $src,
+                        "file_name" => $file_name,
+                        "path" => $path,
+                        "ext" => $ext_name,
+                        "is_dir" => $is_dir,
+                        "is_file" => $is_file
+                    ]
+                );
             } else {
                 continue;
             }
         } else {
-            array_push($files, $scan[$i]);
+            array_push(
+                $files,
+                [
+                    "created_at" => $created_at,
+                    "size" => $size,
+                    "src" => $src,
+                    "file_name" => $file_name,
+                    "path" => $path,
+                    "ext" => $ext_name,
+                    "is_dir" => $is_dir,
+                    "is_file" => $is_file
+                ]
+            );
         }
     }
 }
+
 $json = json_decode(file_get_contents("/app/data/files.json"), true);

@@ -1,31 +1,19 @@
 <div class="card__group">
     <?php for ($i = 0; $i  < count($files); $i++) : ?>
         <?php
-        $src = strtolower($files[$i]);
-        $file_name = $files[$i];
-        $ext_name = strtolower(ext_name($src, false));
+        $src = $files[$i]["src"];
+        $file_name = $files[$i]["file_name"];
+        $ext_name =  $files[$i]["ext"];
         $rendered = false;
-        $path = $ROOT_PATH . $src;
-
-        $is_dir = is_dir($path);
+        $path = $files[$i]["path"];
+        $is_dir = $files[$i]["is_dir"];
+        $is_file = $files[$i]["is_file"];
         $filesize = 0;
-        if (is_file($path)) {
-            $size_in_mb = filesize($path) / 1024 / 1024;
-            $filesize =  number_format((float) ($size_in_mb >= 1024 ? $size_in_mb / 1024 : $size_in_mb), 2, '.', '');
-        }
+        $date = date("d-m-Y", $files[$i]["created_at"]);
+        $time = date("h:i:s a", $files[$i]["created_at"]);
+        $size_in_mb = $files[$i]["size"] / 1024 / 1024;
+        $filesize =  number_format((float) ($size_in_mb >= 1024 ? $size_in_mb / 1024 : $size_in_mb), 2, '.', '');
 
-        $date = null;
-        $time = null;
-        if (!$is_dir) {
-            $file_name_info = explode("__", $file_name);
-            if (count($file_name_info) > 1) {
-                $date = explode("_", $file_name_info[1])[0];
-                $time = explode("_", $file_name_info[1])[1];
-                $file_name = $file_name_info[0];
-            } else {
-                $date = null;
-            }
-        }
         $label_id = random_int(0, 100000) . $src;
         ?>
 
@@ -95,17 +83,17 @@
             <!-- Buttons -->
             <div style="width: 100%;">
                 <p class="filename"><?php echo $file_name ?></p>
+                <div class="collapse stats" id="collapseExample">
+                    <p><b>Date:</b> <?php echo $date ?></p>
+                    <p><b>Time:</b> <?php echo $time ?></p>
+                    <?php if (!$is_dir) : ?>
+                        <p><b>Size:</b> <?php echo ($filesize); ?> MB</p>
+                        <p><b>Extension:</b> .<?php echo ($ext_name); ?></p>
+                    <?php endif ?>
+                </div>
                 <?php if ($is_dir) : ?>
                     <a href="?dir=<?php echo $path ?>" class="btn btn-primary open" style="width: 100%;border-radius: 0;">Open</a>
                 <?php else : ?>
-                    <div class="collapse stats" id="collapseExample">
-                        <?php if (!empty($date)) : ?>
-                            <p><b>Date:</b> <?php echo $date ?></p>
-                            <p><b>Time:</b> <?php echo $time ?></p>
-                        <?php endif ?>
-                        <p><b>Size:</b> <?php echo ($filesize); ?> MB</p>
-                    </div>
-
                     <div class="btn__container">
                         <a href='<?php echo $path ?>' download class="btn btn-success download"><?php require "/app/assets/php/download.php" ?> &nbsp; <span>download</span> </a>
                         <a href="<?php echo $path ?>" target="_blank" class="btn btn-primary open">Open</a>

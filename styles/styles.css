@@ -34,6 +34,16 @@ body {
   color: #171c21;
 }
 
+.check-all {
+  color: #ff07aa !important;
+  border-color: #ff07aa !important;
+}
+
+.check-all:hover {
+  color: #fff !important;
+  background-color: #ff07aa !important;
+}
+
 .modal-header {
   border-bottom: 1px solid #414f5d !important;
 }
@@ -171,6 +181,7 @@ form {
   opacity: 0;
   visibility: hidden;
   transition: 0.5s all;
+  z-index: 99;
 }
 
 .card input[type="checkbox"]:checked {

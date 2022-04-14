@@ -7,17 +7,9 @@ if (isset($_FILES["file"]) && isset($_POST["filename"])) {
     $file_counts = count($files);
     for ($i = 0; $i < $file_counts; $i++) {
         $file = $_FILES['file']['tmp_name'][$i];
-        $target_dir = $ROOT_PATH;
-
-        $target_file;
-        $date = date('m-d-Y_h-i-s');
-        if (!empty($_POST["filename"])) {
-            $target_file = $target_dir . $_POST["filename"] . ext_name($files[$i]) . '__' . $date . '__' . random_int(1000, 10000000) . ext_name($files[$i]);
-        } else {
-            $basename =
-                basename($_FILES["file"]["name"][$i]);
-            $target_file = $target_dir . $basename . '__' . $date . '__' . random_int(1000, 10000000) .  ext_name($files[$i]);
-        }
+        $basename =  str_replace(ext_name($files[$i]), "", $files[$i]);
+        $file_name = !empty($_POST["filename"]) ? $_POST["filename"] : $basename;
+        $target_file = $ROOT_PATH . resolve_file_name($ROOT_PATH, $file_name, ext_name($files[$i]));
         move_uploaded_file($_FILES['file']['tmp_name'][$i],  $target_file);
     }
     header('Location: ' . $_SERVER['REQUEST_URI']);

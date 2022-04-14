@@ -1,11 +1,13 @@
 # 📦 Xplora-File Server
 
+XFS is light weight file server, mainly for home networks where you don't required password login. XFS allow you to access, create, upload, rename & delete your files & folder.
+
 ## Running
 
-Run `link.bat` script in terminal.
+Run `link.sh` script in terminal.
 
 ```
-$ link.bat
+$ link.sh
 ```
 
 ## Settings
@@ -42,8 +44,14 @@ root
 |-- index.php
 |-- .htaccess
 |-- app
-|   |
+|   | -- index.php
+|   | -- .htaccess
+|   | -- assets
 |   |
 ```
+
+## Preview
+
+<img src=".github/assets/xfs-preview.gif" width="2000" alt="xfs-preview" />
 
 ### Thank You! 🙏

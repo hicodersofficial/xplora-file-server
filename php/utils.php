@@ -61,3 +61,23 @@ function ext_name($path, $dot = true)
         return  "";
     }
 }
+
+$file_index = 0;
+
+function resolve_file_name($target_dir, $file_name, $ext)
+{
+    $name = $file_name . $ext;
+    $target_file = $target_dir . $name;
+
+    if (file_exists($target_file)) {
+        $GLOBALS["file_index"] += 1;
+        $index = "-" . $GLOBALS["file_index"];
+        echo preg_match("/-[1-9]$ext\$/", $name);
+        if (preg_match("/-[1-9]$ext\$/", $name)) {
+            return resolve_file_name($target_dir, preg_replace("/-[1-9]$ext\$/", $index, $name), $ext);
+        }
+        return resolve_file_name($target_dir, $file_name . $index, $ext);
+    } else {
+        return $name;
+    }
+}
