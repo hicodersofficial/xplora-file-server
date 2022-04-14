@@ -48,8 +48,8 @@
                 <!--  -->
                 <?php for ($j = 0; $j < count($json); $j++) : ?>
                     <?php if (in_array($ext_name, $json[$j]["exts"]) && !$rendered) : ?>
-                        <img src="<?php echo "/app/assets/icons/" . $json[$j]["name"] . '.' . $json[$j]["iconExt"]
-                                    ?>" class="card-img-top" alt="<?php echo $src  ?>">
+                        <img style="height: 200px;" src="<?php echo "/app/assets/icons/" . $json[$j]["name"] . '.' . $json[$j]["iconExt"]
+                                                            ?>" class="card-img-top" alt="<?php echo $src  ?>">
                         <?php $rendered = true ?>
                     <?php endif ?>
                 <?php endfor; ?>
@@ -63,7 +63,7 @@
                 <!-- Wilde card match: Means, Any above rules didn't matched -->
                 <?php if (!$rendered) : ?>
                     <div style="padding: 2rem;">
-                        <svg class="unknown" xmlns="http://www.w3.org/2000/svg" width="233" height="278" viewBox="0 0 233 278">
+                        <svg class="unknown" xmlns="http://www.w3.org/2000/svg" style="height: 200px;" viewBox="0 0 233 278">
                             <g id="Group_1" data-name="Group 1" transform="translate(-155 -599)">
                                 <g id="Path_3" data-name="Path 3" transform="translate(155 599)" fill="#fff" stroke-linecap="round">
                                     <path d="M 207 272 L 26 272 C 14.97195816040039 272 6 263.0280456542969 6 252 L 6 26 C 6 14.97195816040039 14.97195816040039 6 26 6 L 150.9785308837891 6 L 227 96.18296051025391 L 227 252 C 227 263.0280456542969 218.0280456542969 272 207 272 Z" stroke="none" />

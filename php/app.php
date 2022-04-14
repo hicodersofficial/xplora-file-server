@@ -77,4 +77,10 @@ for ($i = 0; $i < count($scan); $i++) {
     }
 }
 
+
+usort($files, function ($item1, $item2) {
+    if ($item1['created_at'] == $item2['created_at']) return 0;
+    return ($item1['created_at'] < $item2['created_at']) ? 1 : -1;
+});
+
 $json = json_decode(file_get_contents("/app/data/files.json"), true);

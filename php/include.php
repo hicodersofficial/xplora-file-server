@@ -83,10 +83,10 @@ if (!empty(isset($_POST["select"])) && !empty(isset($_POST["rename"]))) {
     $paths = $_POST["select"];
     $name = $_POST["rename"];
     foreach ($paths as $path) {
+        $target_dir = str_replace(basename($path), "", $path);
         rename(
             $path,
-            $name . ext_name($path)
-
+            $target_dir . resolve_file_name($target_dir, $name, ext_name(basename($path)))
         );
     }
     header('Location: ' . $_SERVER['REQUEST_URI']);
