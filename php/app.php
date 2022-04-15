@@ -2,13 +2,6 @@
 // default timezone
 date_default_timezone_set("Asia/Kolkata");
 
-// Images extensions
-define("IMG_EXTS", ["png", "jpg", "jpeg", "tiff", "tif", "svg", "webp", "gif", "ico"]);
-define("VIDEOS_EXTS", ["mp4", "3gp", "mov", "webm"]);
-define("AUDIO_EXTS", ["mp3", "ogg", "pcm", "aiff", "wav", "acc", "wma", "flac"]);
-define("EXCL_EXTS", ["dockerfile", "conf", "config", "configuration"]);
-define("EXCLUDES", [".", "..", '$recycle.bin', "system volume information", ".htaccess", "app", "index.php"]);
-
 // root directory
 $ROOT_PATH = "/";
 
@@ -83,4 +76,4 @@ usort($files, function ($item1, $item2) {
     return ($item1['created_at'] < $item2['created_at']) ? 1 : -1;
 });
 
-$json = json_decode(file_get_contents("/app/data/files.json"), true);
+$json = json_decode(file_get_contents("/" . ROOT . "/data/files.json"), true);

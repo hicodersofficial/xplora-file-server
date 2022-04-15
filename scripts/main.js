@@ -12,9 +12,6 @@ const download = document.querySelector("#download");
 const zip = document.querySelector("#zip");
 const selectAll = document.querySelector("#selectAll");
 
-const BASE_URI = "/app/ajax";
-axios.defaults.baseURL = BASE_URI;
-
 var tooltipTriggerList = [].slice.call(
   document.querySelectorAll('[data-bs-toggle="tooltip"]')
 );

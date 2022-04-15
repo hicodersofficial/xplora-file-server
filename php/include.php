@@ -1,6 +1,6 @@
 <?php
-require_once "utils.php";
-require_once "/app/php/app.php";
+require_once "/" . ROOT . "/php/utils.php";
+require_once "/" . ROOT . "/php/app.php";
 
 if (isset($_FILES["file"]) && isset($_POST["filename"])) {
     $files = $_FILES['file']['name'];

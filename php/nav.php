@@ -2,7 +2,7 @@
     <div class="container-fluid">
         <div class="navbar-brand">
             <a href="/">
-                <img src="/app/logo.png" width="30" /> <span>Server </span>
+                <img src="/<?php echo ROOT ?>/logo.png" width="30" /> <span>Server </span>
             </a>
             <span class="path"><?php echo  strlen($ROOT_PATH) > 60 ? "..." .   substr($ROOT_PATH, strlen($ROOT_PATH) - 60) : $ROOT_PATH; ?></span>
             <span class="path-mobile">
