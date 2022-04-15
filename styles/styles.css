@@ -19,7 +19,6 @@ body {
   display: grid;
   gap: 10px 10px;
   box-sizing: border-box;
-  /* justify-content: center; */
   padding: 10px;
   grid-template-columns: repeat(4, 1fr);
 }
@@ -131,10 +130,6 @@ form {
 .open {
   flex: 0.35;
 }
-/* .download,
-.open {
-  height: 40px;
-} */
 
 .path,
 .path-mobile {
@@ -240,8 +235,6 @@ form {
     display: none !important;
   }
   .upload-btn {
-    /* width: 100% !important;
-    margin-right: 0 !important; */
     margin-bottom: 10px !important;
   }
 }
