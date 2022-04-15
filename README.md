@@ -4,7 +4,7 @@ XFS is light weight file server, mainly for home networks where you don't requir
 
 ## Running
 
-Run `link.sh` script in terminal.
+Run `link.sh` script in terminal **or copy `index.php` & `.htaccess` files to one directory back.**
 
 ```
 $ link.sh
@@ -40,14 +40,25 @@ max_file_uploads=100
 File structure after running link script.
 
 ```
-root
-|-- index.php
-|-- .htaccess
-|-- app
-|   | -- index.php
-|   | -- .htaccess
-|   | -- assets
-|   |
+root (htdocs)
+├── index.php
+├── .htaccess
+└── xplora-file-server
+    ├── .github
+    ├── assets
+    ├── data
+    ├── php
+    ├── scripts
+    ├── styles
+    ├── vendor
+    ├── .gitignore
+    ├── .htaccess
+    ├── 404.php
+    ├── link.sh
+    ├── logo.png
+    ├── favicon.ico
+    ├── README.md
+    └── index.php
 ```
 
 ## Preview
