@@ -25,6 +25,9 @@ if (is_dir($ROOT_PATH)) {
 
 for ($i = 0; $i < count($scan); $i++) {
     $src = strtolower($scan[$i]);
+    if ($ROOT_PATH == "/" && in_array($src, XFS_EXC)) {
+        continue;
+    }
     if (!in_array($src, EXCLUDES)) {
         $path = $ROOT_PATH . $scan[$i];
         $created_at = stat($path)[10];
@@ -69,6 +72,7 @@ for ($i = 0; $i < count($scan); $i++) {
         }
     }
 }
+
 
 
 usort($files, function ($item1, $item2) {
