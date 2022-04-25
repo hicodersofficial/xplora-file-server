@@ -11,7 +11,8 @@ function randomColor($minVal = 0, $maxVal = 255)
 
 function normalize_path($path)
 {
-    return str_replace("//", "/", "/" . $path . "/");
+    $start_path = preg_replace("/^(\.?\/+)/i", "", $path) . "//";
+    return str_replace("//", "/", $start_path);
 }
 
 function my_url_param_parser($url, $key, $value)

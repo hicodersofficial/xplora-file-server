@@ -3,7 +3,7 @@
 date_default_timezone_set("Asia/Kolkata");
 
 // root directory
-$ROOT_PATH = "/";
+$ROOT_PATH = "./";
 
 $scan = [];
 $keyword;
@@ -25,7 +25,7 @@ if (is_dir($ROOT_PATH)) {
 
 for ($i = 0; $i < count($scan); $i++) {
     $src = strtolower($scan[$i]);
-    if ($ROOT_PATH == "/" && in_array($src, XFS_EXC)) {
+    if ($ROOT_PATH == "./" && in_array($src, XFS_EXC)) {
         continue;
     }
     if (!in_array($src, EXCLUDES)) {
@@ -73,11 +73,9 @@ for ($i = 0; $i < count($scan); $i++) {
     }
 }
 
-
-
 usort($files, function ($item1, $item2) {
     if ($item1['created_at'] == $item2['created_at']) return 0;
     return ($item1['created_at'] < $item2['created_at']) ? 1 : -1;
 });
 
-$json = json_decode(file_get_contents("/" . ROOT . "/data/files.json"), true);
+$json = json_decode(file_get_contents(ROOT . "/data/files.json"), true);

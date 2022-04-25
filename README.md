@@ -35,6 +35,17 @@ Maximum number of files that can be uploaded via a single request
 max_file_uploads=100
 ```
 
+### Nginx Setting Settings
+
+If you are using nginx make these changes for uploading bigger files.
+
+```
+server {
+    #...
+    client_max_body_size 100M;
+}
+```
+
 ## File structure
 
 File structure after running link script.
