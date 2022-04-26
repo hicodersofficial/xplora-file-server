@@ -8,10 +8,10 @@
                 </div>
                 <div class="modal-body">
                     <!-- <p>Upload file.</p> -->
-                    <input class="form-control me-2 bg-search" autocomplete="off" type="text" placeholder="Directory Name" name="dirname" aria-label=dirname">
+                    <input class="form-control me-2 bg-search" autocomplete="off" type="text" placeholder="Directory Name" name="dirname" aria-label=dirname" />
                     &nbsp;
                     <div style="display: flex; align-items: center;">
-                        <input type="checkbox" name="navigate" value="true" id="navigate" checked style="height: 20px;width: 20px;cursor: pointer;">
+                        <input type="checkbox" name="navigate" value="true" id="navigate" checked style="height: 20px;width: 20px;cursor: pointer;" />
                         <label style="cursor: pointer;" for="navigate">&nbsp;Navigate to newly created folder.</label>
                     </div>
                 </div>

@@ -18,7 +18,7 @@
         ?>
 
         <div class="card">
-            <input type="checkbox" id="<?php echo $label_id ?>" name="select[]" class="select" value="<?php echo $path ?>" data-name="<?php echo $src ?>" data-is-dir="<?php echo $is_dir ? "true" : "false"; ?>">
+            <input type="checkbox" id="<?php echo $label_id ?>" name="select[]" class="select" value="<?php echo $path ?>" data-name="<?php echo $src ?>" data-is-dir="<?php echo $is_dir ? "true" : "false"; ?>" />
             <!-- Rendered if item is directory/folder. -->
             <label for="<?php echo $label_id ?>">
                 <?php if ($is_dir) : ?>

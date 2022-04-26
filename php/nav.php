@@ -43,8 +43,8 @@
             <button class="btn btn-outline-primary upload-btn" data-bs-toggle="modal" data-bs-target="#uploadModel" title="Upload"> <i data-bs-toggle="tooltip" data-bs-placement="bottom" title="Upload" class="bi bi-upload"></i></button>
 
             <form class="d-flex">
-                <input class="form-control me-2 bg-search" type="search" name="s" placeholder="Search" autocomplete="off" aria-label="Search">
-                <input type="hidden" name="dir" value="<?php echo $ROOT_PATH; ?>">
+                <input class="form-control me-2 bg-search" type="search" name="s" placeholder="Search" autocomplete="off" aria-label="Search" />
+                <input type="hidden" name="dir" value="<?php echo $ROOT_PATH; ?>" />
                 <button class="btn btn-outline-success" type="submit">Search</button>
             </form>
         </div>

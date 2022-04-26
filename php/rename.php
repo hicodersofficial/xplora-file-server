@@ -6,7 +6,7 @@
                 <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">&times; </button>
             </div>
             <div class="modal-body">
-                <input class="form-control me-2 bg-search" autocomplete="off" type="text" placeholder="New Name" name="rename" aria-label="rename">
+                <input class="form-control me-2 bg-search" autocomplete="off" type="text" placeholder="New Name" name="rename" aria-label="rename" />
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

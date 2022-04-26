@@ -8,7 +8,7 @@
                 </div>
                 <div class="modal-body">
                     <!-- <p>Upload file.</p> -->
-                    <input class="form-control me-2 bg-search" type="Custom Filename" placeholder="Custom Filename" name="filename" aria-label="Custom Filename">
+                    <input class="form-control me-2 bg-search" type="Custom Filename" placeholder="Custom Filename" name="filename" aria-label="Custom Filename" />
                     &nbsp;
                     <button class="btn btn-success" type="button" onclick="this.children[0].click()" style="width: 100%;">
                         <input type="file" name="file[]" multiple id="file" style="display: none;" />
