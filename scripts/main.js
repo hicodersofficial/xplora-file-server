@@ -11,6 +11,7 @@ const renameSure = document.querySelector("#renameSure");
 const download = document.querySelector("#download");
 const zip = document.querySelector("#zip");
 const selectAll = document.querySelector("#selectAll");
+const favBtns = document.querySelectorAll(".card .star");
 
 var tooltipTriggerList = [].slice.call(
   document.querySelectorAll('[data-bs-toggle="tooltip"]')
@@ -100,3 +101,27 @@ selectAll.addEventListener("click", () => {
     download.classList.add("disabled");
   }
 });
+
+favBtns.forEach((el) =>
+  el.addEventListener("click", (evt) => handleFav(evt, el))
+);
+
+function handleFav(evt, el) {
+  const form = document.createElement("form");
+  form.method = "POST";
+  const pathInput = document.createElement("input");
+  pathInput.type = "hidden";
+  pathInput.value = el.dataset.path;
+  pathInput.name = "path";
+
+  const nameInput = document.createElement("input");
+  nameInput.type = "hidden";
+  nameInput.value = el.dataset.name;
+  nameInput.name = "star";
+
+  form.appendChild(pathInput);
+  form.appendChild(nameInput);
+
+  document.body.appendChild(form);
+  form.submit();
+}

@@ -15,10 +15,18 @@
         $filesize =  number_format((float) ($size_in_mb >= 1024 ? $size_in_mb / 1024 : $size_in_mb), 2, '.', '');
 
         $label_id = random_int(0, 100000) . $src;
+        $isStarred = $files[$i]["is_starred"];
+
         ?>
 
         <div class="card">
             <input type="checkbox" id="<?php echo $label_id ?>" name="select[]" class="select" value="<?php echo $path ?>" data-name="<?php echo $src ?>" data-is-dir="<?php echo $is_dir ? "true" : "false"; ?>" />
+            <?php if ($isStarred) : ?>
+                <div title="unstar" class="star starred" id="fav" data-name="<?php echo $file_name ?>" data-path="<?php echo $path ?>"><i class="bi bi-star-fill"></i></div>
+            <?php else : ?>
+                <div title="star" class="star" id="fav" data-name="<?php echo $file_name ?>" data-path="<?php echo $path ?>"><i class="bi bi-star"></i></div>
+            <?php endif ?>
+
             <!-- Rendered if item is directory/folder. -->
             <label for="<?php echo $label_id ?>">
                 <?php if ($is_dir) : ?>

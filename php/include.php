@@ -92,3 +92,27 @@ if (!empty(isset($_POST["select"])) && !empty(isset($_POST["rename"]))) {
     header('Location: ' . $_SERVER['REQUEST_URI']);
     exit();
 }
+
+if (!empty(isset($_POST["star"])) && !empty(isset($_POST["path"]))) {
+    $name = $_POST["star"];
+    $path = $_POST["path"];
+    $stars = json_decode(file_get_contents(ROOT . "/data/star.json"), true);
+    $isStarred = false;
+    for ($i = 0; $i < count($stars); $i++) {
+        $f = $stars[$i];
+        if ($name == $f["name"] && $path == $f["path"]) {
+            array_splice($stars, $i, 1);
+            $isStarred = true;
+            break;
+        }
+    }
+    if (!$isStarred) {
+        array_unshift($stars, ["name" => $name, "path" => $path]);
+    }
+    $jsonData = json_encode($stars);
+    $starFile = fopen(ROOT . "/data/star.json", "w") or die("Unable to open file!");
+    fwrite($starFile, $jsonData);
+    fclose($starFile);
+    header('Location: ' . $_SERVER['REQUEST_URI']);
+    exit();
+}

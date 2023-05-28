@@ -189,6 +189,30 @@ form {
   visibility: visible;
 }
 
+.card .star {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 20px;
+  width: 20px;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.5s all;
+  z-index: 99;
+}
+
+.card .starred {
+  color: rgb(255, 196, 0);
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+.card:hover > .star {
+  opacity: 1;
+  visibility: visible;
+}
+
 .loader {
   width: 20px;
   height: 20px;
