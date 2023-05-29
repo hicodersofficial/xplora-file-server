@@ -16,7 +16,6 @@
     <link rel="stylesheet" href="<?php echo ROOT ?>/vendor/bootstrap-icons.css">
     <link rel="stylesheet" href="<?php echo ROOT ?>/vendor/css.gg.all.css">
     <script src="<?php echo ROOT ?>/vendor/bootstrap.js"></script>
-    <script src="<?php echo ROOT ?>/vendor/axios.min.js"></script>
 </head>
 
 <body>

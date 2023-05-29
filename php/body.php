@@ -13,6 +13,13 @@
          <?php require  ROOT . "/php/create_card.php" ?>
          <?php require  ROOT . "/php/rename.php" ?>
      </form>
+     <div class="drag-n-drop hide">
+         <div class="inner-border">
+             <img src="<?php echo ROOT ?>/assets/images/upload.png" alt="">
+             <h3>Drop your files here!</h3>
+         </div>
+     </div>
+
      <?php require  ROOT . "/php/delete.php" ?>
  <?php else : ?>
      <section class="container-404">

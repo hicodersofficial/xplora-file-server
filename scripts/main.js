@@ -12,6 +12,8 @@ const download = document.querySelector("#download");
 const zip = document.querySelector("#zip");
 const selectAll = document.querySelector("#selectAll");
 const favBtns = document.querySelectorAll(".card .star");
+const dng = document.querySelector(".drag-n-drop");
+const dropContainer = document.querySelector(".drag-n-drop .inner-border");
 
 var tooltipTriggerList = [].slice.call(
   document.querySelectorAll('[data-bs-toggle="tooltip"]')
@@ -124,4 +126,54 @@ function handleFav(evt, el) {
 
   document.body.appendChild(form);
   form.submit();
+  document.body.removeChild(form);
 }
+
+let timer;
+
+document.addEventListener("dragstart", (e) => {
+  timer = new Date();
+});
+
+document.addEventListener("dragend", (e) => {
+  dng.classList.add("hide");
+});
+
+document.addEventListener("dragover", (e) => {
+  if (new Date() - timer > 500) {
+    e.preventDefault();
+    dng.classList.remove("hide");
+  }
+});
+
+dropContainer.addEventListener("drop", (e) => {
+  e.preventDefault();
+  dng.classList.add("hide");
+  console.log(e.dataTransfer);
+
+  const form = document.createElement("form");
+
+  form.method = "POST";
+  form.enctype = "multipart/form-data";
+  const fileInput = document.createElement("input");
+  fileInput.type = "file";
+  fileInput.multiple = true;
+  fileInput.files = e.dataTransfer.files;
+  fileInput.name = "file[]";
+  const nameInput = document.createElement("input");
+  nameInput.type = "text";
+  nameInput.name = "filename";
+
+  form.appendChild(fileInput);
+  form.appendChild(nameInput);
+
+  document.body.appendChild(form);
+  form.submit();
+  document.body.removeChild(form);
+});
+
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") {
+    dng.classList.add("hide");
+  }
+});
