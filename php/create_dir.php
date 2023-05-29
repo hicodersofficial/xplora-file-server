@@ -1,6 +1,6 @@
 <div class="modal" id="createDir" tabindex=" -1">
     <div class="modal-dialog modal-dialog-centered">
-        <form action="<?php echo $_SERVER['REQUEST_URI'] ?>" method="POST" id="form" enctype="multipart/form-data">
+        <form action="<?php echo $_SERVER['REQUEST_URI'] ?>" method="POST" id="form">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title">Create Folder</h5>

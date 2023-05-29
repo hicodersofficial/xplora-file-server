@@ -146,7 +146,11 @@
         "name": "key",
         "iconExt": "svg",
         "exts": [
-            "key"
+            "key",
+            "pem",
+            "pfx",
+            "der",
+            "pub"
         ]
     },
     {
@@ -172,9 +176,10 @@
     },
     {
         "name": "powerpoint",
-        "iconExt": "svg",
+        "iconExt": "png",
         "exts": [
-            "ppt"
+            "ppt",
+            "pptx"
         ]
     },
     {
@@ -223,7 +228,7 @@
     },
     {
         "name": "word",
-        "iconExt": "svg",
+        "iconExt": "png",
         "exts": [
             "docx",
             "doc",
@@ -242,7 +247,8 @@
         "name": "yaml",
         "iconExt": "svg",
         "exts": [
-            "yaml"
+            "yaml",
+            "yml"
         ]
     },
     {
@@ -254,6 +260,66 @@
             "tar.gz",
             "tar",
             "gz"
+        ]
+    },
+    {
+        "name": "git",
+        "iconExt": "png",
+        "exts": [
+            "gitignore",
+            "git"
+        ]
+    },
+    {
+        "name": "psd",
+        "iconExt": "png",
+        "exts": [
+            "psd"
+        ]
+    },
+    {
+        "name": "ai",
+        "iconExt": "png",
+        "exts": [
+            "ai",
+            "es"
+        ]
+    },
+    {
+        "name": "lock",
+        "iconExt": "svg",
+        "exts": [
+            "lock"
+        ]
+    },
+    {
+        "name": "database",
+        "iconExt": "svg",
+        "exts": [
+            "db",
+            "sql"
+        ]
+    },
+    {
+        "name": "http",
+        "iconExt": "svg",
+        "exts": [
+            "rest",
+            "link",
+            "http",
+            "https",
+            "tcp"
+        ]
+    },
+    {
+        "name": "certificate",
+        "iconExt": "svg",
+        "exts": [
+            "license",
+            "cer",
+            "crt",
+            "cert",
+            "certificate"
         ]
     }
 ]

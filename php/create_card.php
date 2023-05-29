@@ -8,11 +8,10 @@
         $path = $files[$i]["path"];
         $is_dir = $files[$i]["is_dir"];
         $is_file = $files[$i]["is_file"];
-        $filesize = 0;
         $date = date("d-m-Y", $files[$i]["created_at"]);
         $time = date("h:i:s a", $files[$i]["created_at"]);
         $size_in_mb = $files[$i]["size"] / 1024 / 1024;
-        $filesize =  number_format((float) ($size_in_mb >= 1024 ? $size_in_mb / 1024 : $size_in_mb), 2, '.', '');
+        $filesize =  number_format((float) ($size_in_mb >= 1024 ? $size_in_mb / 1024 : $size_in_mb), 1, '.', '');
 
         $label_id = random_int(0, 100000) . $src;
         $isStarred = $files[$i]["is_starred"];
@@ -28,7 +27,7 @@
             <?php endif ?>
 
             <!-- Rendered if item is directory/folder. -->
-            <label for="<?php echo $label_id ?>">
+            <label class="preview" for="<?php echo $label_id ?>">
                 <?php if ($is_dir) : ?>
                     <img src="<?php echo ROOT ?>/assets/icons/folder.png" class="card-img-top" alt="<?php echo $src  ?>">
                     <?php $rendered = true ?>
@@ -47,16 +46,17 @@
                     <?php $rendered = true ?>
                 <?php endif; ?>
                 <?php if (in_array($ext_name, AUDIO_EXTS)) : ?>
-                    <img src="<?php echo ROOT ?>/assets/icons/audio.svg" style="width: 70%;" class="card-img-top" alt="<?php echo $src  ?>">
-                    <audio style="width: 95%;" controls src="<?php echo $path ?>"></audio>
+                    <div class="audio-preview">
+                        <img src="<?php echo ROOT ?>/assets/icons/audio.svg" style="width: 70%;" alt="<?php echo $src  ?>">
+                        <audio style="width: 95%;" controls src="<?php echo $path ?>"></audio>
+                    </div>
                     <?php $rendered = true ?>
                 <?php endif; ?>
 
                 <!--  -->
                 <?php for ($j = 0; $j < count($json); $j++) : ?>
                     <?php if (in_array($ext_name, $json[$j]["exts"]) && !$rendered) : ?>
-                        <img style="height: 200px;" src="<?php echo "/" .  ROOT . "/assets/icons/" . $json[$j]["name"] . '.' . $json[$j]["iconExt"]
-                                                            ?>" class="card-img-top" alt="<?php echo $src  ?>">
+                        <img class="card-img-top binary-icon" src="<?php echo "/" .  ROOT . "/assets/icons/" . $json[$j]["name"] . '.' . $json[$j]["iconExt"] ?>" alt="<?php echo $src  ?>">
                         <?php $rendered = true ?>
                     <?php endif ?>
                 <?php endfor; ?>
@@ -102,7 +102,7 @@
                     <a href="?dir=<?php echo $path ?>" class="btn btn-primary open" style="width: 100%;border-radius: 0;">Open</a>
                 <?php else : ?>
                     <div class="btn__container">
-                        <a href='<?php echo $path ?>' download class="btn btn-success download"><?php require  ROOT . "/assets/php/download.php" ?> &nbsp; <span>download</span> </a>
+                        <a href='<?php echo $path ?>' download class="btn btn-success download"><?php require  ROOT . "/assets/php/download.php" ?> &nbsp; <span>Download</span> </a>
                         <a href="<?php echo $path ?>" target="_blank" class="btn btn-primary open">Open</a>
                     </div>
                 <?php endif ?>

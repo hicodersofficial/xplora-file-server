@@ -4,7 +4,7 @@ XFS is light weight file server, mainly for home networks where you don't requir
 
 ## Running
 
-Run `setup.sh` script in terminal **or copy `index.php` & `.htaccess` files to one directory back.**
+Run `setup.sh` script in terminal.
 
 ```
 $ setup.sh
@@ -37,7 +37,7 @@ max_file_uploads=100
 
 ### Nginx Setting Settings
 
-If you are using nginx make these changes for uploading bigger files.
+If you are using nginx, make these changes for uploading larger files.
 
 ```
 server {
